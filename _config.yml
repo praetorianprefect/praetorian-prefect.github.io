@@ -25,6 +25,7 @@ author: dkennedy
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
 #url: 'https://phlow.github.io/feeling-responsive'
+url: https://praetorianprefect.github.io
 baseurl: ''
 
 # This is for the editing function in _/includes/improve_content
