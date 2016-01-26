@@ -16,11 +16,6 @@ format: video
 					{% if page.video.contentURL %}<meta itemprop="contentURL" content="{{ page.video.contentURL }}" />{% endif %}
 					{% if page.video.embedURL %}<meta itemprop="embedURL" content="{{ page.video.embedURL }}" />{% endif %}
 
-					{% if page.teaser %}
-					<p class="teaser" itemprop="description">
-						{{ page.teaser }}
-					</p>
-					{% endif %}
 
 					{{ content }}
 					{% if page.show_meta == true %}
