@@ -1,21 +1,18 @@
 ---
 layout: page
-title: "Anonymous Releases Very Unanonymous Press Release"
-category:
+title: Anonymous Releases Very Unanonymous Press Release
+category: 
   - Hackers
-tags:
+tags: 
   - adobe
   - anonymous
   - featured
-teaser: |
-    Today, December 10th, Anonymous, an Internet gathering, released a press
-    release which you can read below. In it, a description is provided of
-    what Anonymous is about, what Operation Payback is, and where the media
-    is getting it wrong. Also in it, its author forgot to remove his name in
-    the pdf’s Meta information.
-header:
-    image_fullwidth: header-concret-camara.jpg 
+teaser: "Today, December 10th, Anonymous, an Internet gathering, released a press\nrelease which you can read below. In it, a description is provided of\nwhat Anonymous is about, what Operation Payback is, and where the media\nis getting it wrong. Also in it, its author forgot to remove his name in\nthe pdf’s Meta information.\n"
+header: 
+  image_fullwidth: "header-concret-camara.jpg"
+published: true
 ---
+
 
 Today, December 10th, Anonymous, an Internet gathering, released a press
 release which you can read below. In it, a description is provided of
