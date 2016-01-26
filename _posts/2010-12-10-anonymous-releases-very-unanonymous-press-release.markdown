@@ -13,6 +13,8 @@ teaser: |
     what Anonymous is about, what Operation Payback is, and where the media
     is getting it wrong. Also in it, its author forgot to remove his name in
     the pdf’s Meta information.
+header:
+    image_fullwidth: header-concret-camara.jpg 
 ---
 
 Today, December 10th, Anonymous, an Internet gathering, released a press
