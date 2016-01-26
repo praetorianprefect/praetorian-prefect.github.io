@@ -5,7 +5,8 @@ category:
   - Wireless 
 tags:
   - featured
-header: no
+header: 
+  image_fullwidth: "header-antanas.jpg"
 teaser: |
     It’s an annual puff piece, whoever is in charge of security at the Super
     Bowl appears on the news in front of some barrier or computer screen,

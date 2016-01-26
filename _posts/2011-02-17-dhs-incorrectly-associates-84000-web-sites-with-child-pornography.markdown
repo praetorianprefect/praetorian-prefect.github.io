@@ -29,7 +29,7 @@ domain hosting among other services. The most popular subdomain offered
 by the service, mooo.com, was accidentally caught up in the ICE sweep of
 domains taken down.
 
-![moocom](/images/moocom.jpg)
+![moocom](/images/moocom.jpg){: .center-image }
 
 That left legitimate sites such as http://greyghost.mooo.com redirecting
 to an ICE web page with this banner, telling visitors "Advertisement,
@@ -38,7 +38,7 @@ pornography constitute federal crimes that carry penalties for first
 time offenders of up to 30 years in federal prison, a $250,000 fine,
 forfeiture and restitution":
 
-![ice_banner](/images/ice_banner.jpg)
+![ice_banner](/images/ice_banner.jpg){: .center-image }
 
 ICE is able to force this by first getting a District Court judge to
 sign off on a seizure warrant, and then having the domain registrars
@@ -46,7 +46,7 @@ re-point the domains to their server hosting the warning banner. At
 7:07 on the 12th, the following message was posted by Free DNS after
 realizing what happened:
 
-![afraiddnsmessage](/images/afraiddnsmessage.jpg) 
+![afraiddnsmessage](/images/afraiddnsmessage.jpg){: .center-image }
 
 
 ## Operation In Our Sites
