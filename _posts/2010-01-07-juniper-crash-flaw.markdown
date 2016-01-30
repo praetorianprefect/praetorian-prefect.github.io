@@ -1,4 +1,5 @@
 ---
+layout: page
 title: "JUNOS (Juniper) Flaw Exposes Core Routers to Kernel Crash"
 categories: 
   - security
