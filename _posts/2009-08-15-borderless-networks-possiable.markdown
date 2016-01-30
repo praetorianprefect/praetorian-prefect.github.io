@@ -10,13 +10,13 @@ tags:
   - security
   - migrated
 author: jrossi
-aliases:
-  - /are-borderless-networks-possiable.html
+header: 
+  image_fullwidth: "header-map-night.jpg"
 teaser: |
-    I attended [SC World Congress](http://www.scmagazineus.com/SC-World-Congress-2009/section/886/) 
-    in New York this week and a keynote from Cisco caught my attention: _Securing 
-    the Cloud: Building the Borderless Network_.  I became fixated on the words 
-    used over and over by [Joel McFarland](http://www.scmagazineus.com/Joel-McFarland-senior-manager-Product-Management-Security-Technology-Group-Cisco-Systems/article/149536/). 
+    I attended SC World Congress
+    in New York this week and a keynote from Cisco caught my attention: Securing 
+    the Cloud: Building the Borderless Network.  I became fixated on the words 
+    used over and over by Joel McFarland
     Borderless this, borderless that, borderless everything.  This campaign started 
     to bother me as this was a security conference and a network company was 
     pushing the idea of less borders.  It seemed off, wrong, and incomplete to me.
