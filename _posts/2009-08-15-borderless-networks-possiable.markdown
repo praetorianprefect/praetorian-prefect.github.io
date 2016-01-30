@@ -171,7 +171,6 @@ Attend this session and learn:<br>
 - Embracing the change to borderless networks<br>
 - Understanding Cisco's next-generation cloud security architecture<br>
 - Realizing the power of choice in choosing an email security solution<br>
-<br>
 - Joel McFarland, senior manager in the product management team within the Security Technology Group at Cisco Systems<br>
 
 <p class="wp-caption-text"><a href="http://www.scmagazineus.com/Agenda-Day-1-2009/section/888/">SC World Congress: Agenda Day 1</a></P>
@@ -191,7 +190,7 @@ not been the best place for us. There was no way Joel could have missed the
 looks of skepticism on all three of our faces.  
 
 Joel pushed the Cisco idea of Borderless Networks in many different ways, but 
-pointed to the <a title="Figure 2: The iPhone" rel="lightbox" href="http://praetorianprefect.com/wp-content/uploads/2009/10/iphone_home.gif">iPhone</a> 
+pointed to the <a title="Figure 2: The iPhone" rel="lightbox" href="/images/iphone_home.gif">iPhone</a> 
 as the game changer, the beginning of things to come.  Then iPhone and 
 salesforce.com became his prime example of how the mobile sales team are 
 almost completely disconnected from the enterprise network.  They access 
@@ -220,7 +219,7 @@ iPhone itself.
 
 Let me come back to the iPhone in a bit, I want to point out another slide 
 that came up during this iPhone praise.  In 
-<a title="Figure 2: Before & After" rel="lightbox" href="http://praetorianprefect.com/wp-content/uploads/2009/10/iphone_home.gif">Figure 2</a> 
+<a title="Figure 2: Before & After" href="/images/before-after_borderless.png">Figure 2</a> 
 I have created a combined version of the two slides Joel was showing to 
 demonstrate the future of networking (I have recreated them from memory, 
 but its close enough for this post).  
@@ -228,41 +227,107 @@ but its close enough for this post).
 <div class="wp-caption" style="float: right;margin: 5px;margin-left: 42px;margin-right: 21px;"><a title="Figure 2: Before & After" rel="lightbox" href="/images/before-after_borderless.png"><img src="/images/before-after_borderless.png" border="1" alt="Us vs Them" width="500" height="400" /> </a>
 <p class="wp-caption-text"><a title="Figure 2: Before & After" rel="lightbox" href="/images/before-after_borderless.png">Figure 2: Before & After</a></p></div>
 
-In Figure 2, we have the __before__ and __after__ sections.  According to 
-Joel, currently the __before__ example is a good summary of how most enterprises 
-networks allow access into and between their networks.  This Joel and I agree on.  
+In Figure 2, we have the __before__ and __after__ sections. According   
+to Joel, currently the __before__ example is a good summary of how most 
+enterprises networks allow access into and between their networks. This 
+Joel and I agree on.                                                    
 
-As seen in the __before__ section, you have a defined entry point into the network 
-from outside, where all external resources gain access.  This is your border between 
-"_us_" and "_them_".  In the examples, both the remote home desktop and iPhone 
-access the network and are allowed across past the border only if proper authentication 
-and authorization have take place.  Once completed, the remote device is granted 
-access to the resources that are allowed for it to function as an effective job 
-tool: access to to internet via internal proxy, access of files in the London 
-office, or logging into the salesforce.com website.  The key thing is that all 
-access flows through this single point of entry.   
+As seen in the __before__ section, you have a defined entry point into  
+the network from outside, where all external resources gain access.     
+This is your border between "_us_" and "_them_". In the examples, both  
+the remote home desktop and iPhone access the network and are allowed   
+across past the border only if proper authentication and authorization  
+have take place. Once completed, the remote device is granted access    
+to the resources that are allowed for it to function as an effective    
+job tool: access to to internet via internal proxy, access of files in  
+the London office, or logging into the salesforce.com website. The key  
+thing is that all access flows through this single point of entry.      
 
-By restricting access for remote devices to a single point, we are able to overcome some technical shortcomings and greatly reduce the vectors of attack for the network.  NAT is required due to the limited number of publicly addressable addresses. Thus end-to-end connectivity is not an option for the remote devices.  The use of IPSec for transport and assigning a RFC1918 address to the remote device end of the IPSec tunnel allows one to overcome the NAT limitations.  This gives you remote device end-to-end connectivity within the enterprise network.  By using this method the network administrators are able to capture and monitor at a single point all access into and out of the network.  NAC, IPS/IDS, and other methods of monitoring are commonly deployed here.
+By restricting access for remote devices to a single point, we are able
+to overcome some technical shortcomings and greatly reduce the vectors
+of attack for the network. NAT is required due to the limited number
+of publicly addressable addresses. Thus end-to-end connectivity is not
+an option for the remote devices. The use of IPSec for transport and
+assigning a RFC1918 address to the remote device end of the IPSec tunnel
+allows one to overcome the NAT limitations. This gives you remote device
+end-to-end connectivity within the enterprise network. By using this
+method the network administrators are able to capture and monitor at a
+single point all access into and out of the network. NAC, IPS/IDS, and
+other methods of monitoring are commonly deployed here.
 
-With the __after__ diagram of Figure 2, we see the future as Cisco/Joel see it.  This is where all resources are able to access all other resources; also known as complete end-to-end connectivity.  Joel did not say how this was to be achieved, but given the network diagram it's not hard to surmise that Cisco is planning a big push for IPv6.  IPv6 will allow for this type of network, and will bring down the NAT boundary.  With it the technical limitation of too few addresses for end-to-end connectivity on the Internet is eliminated and things can get a lot more complex as we see in the __after__ section of the diagram.  
+With the __after__ diagram of Figure 2, we see the future as Cisco/Joel
+see it. This is where all resources are able to access all other
+resources; also known as complete end-to-end connectivity. Joel did not
+say how this was to be achieved, but given the network diagram it's not
+hard to surmise that Cisco is planning a big push for IPv6. IPv6 will
+allow for this type of network, and will bring down the NAT boundary.
+With it the technical limitation of too few addresses for end-to-end
+connectivity on the Internet is eliminated and things can get a lot more
+complex as we see in the __after__ section of the diagram.
 
-On the __after__ diagram you see end-to-end connectivity to each resource both inside the network and outside.  We have an iPhone going directly to salesforce.com, directly accessing a file in the London office, and able to access all the data that it could ever need.  What about limiting access to resources? How do you make sure that a remote home desktop does not start copying all of the data from the London office, NYC office, and salesforce.com to a remote site?  What if the desktop is infected with malware?  How do you log the activity of the remote device access? All the questions become much harder when you have completed end-to-end connectivity, and historically we have learned it becomes an even larger problem when there are remote devices involved. 
+On the __after__ diagram you see end-to-end connectivity to each
+resource both inside the network and outside. We have an iPhone going
+directly to salesforce.com, directly accessing a file in the London
+office, and able to access all the data that it could ever need. What
+about limiting access to resources? How do you make sure that a remote
+home desktop does not start copying all of the data from the London
+office, NYC office, and salesforce.com to a remote site? What if the
+desktop is infected with malware? How do you log the activity of the
+remote device access? All the questions become much harder when you have
+completed end-to-end connectivity, and historically we have learned it
+becomes an even larger problem when there are remote devices involved.
 
-All the questions I have asked about the security of the __after__ sections can be answered with products already on the market and in fact are recommended for use in both networks.  The problem becomes the scale that is needed to protect and defend a network that has complete end-to-end connectivity.  Once again, going back to the __after__ diagram, only taking into account remote device access, the number of policies that needs to be maintained, protected, and monitored goes from 1 to 4.  Now a growth of 400% is big, but almost manageable. If you start to think about a small enterprise with 20 offices, 2 datacenters, and 200 remote users, the problem of scale is instantly untenable. 
+All the questions I have asked about the security of the __after__
+sections can be answered with products already on the market and in
+fact are recommended for use in both networks. The problem becomes the
+scale that is needed to protect and defend a network that has complete
+end-to-end connectivity. Once again, going back to the __after__
+diagram, only taking into account remote device access, the number of
+policies that needs to be maintained, protected, and monitored goes from
+1 to 4. Now a growth of 400% is big, but almost manageable. If you start
+to think about a small enterprise with 20 offices, 2 datacenters, and
+200 remote users, the problem of scale is instantly untenable.
 
-IPv6 will solve a lot of problems for networks as the need for NAT will go away and devices will be able to directly address each other across networks and boundaries, but as with just about everything there are side effects.  Keeping control of access into and out your network is the first line of defense and with IPv6 this becomes a policy and enforcement issue even if it is no longer a technical requirement.  
+IPv6 will solve a lot of problems for networks as the need for NAT
+will go away and devices will be able to directly address each other
+across networks and boundaries, but as with just about everything there
+are side effects. Keeping control of access into and out your network
+is the first line of defense and with IPv6 this becomes a policy and
+enforcement issue even if it is no longer a technical requirement.
 
 
 #### The iPhone, Key to the Borderless Network
 
-Joel said he likes his iPhone and from the huge number of videos from Cisco featuring an iPhone it's safe to assume Cisco does too.  During the keynote Joel pointed out the iPhone a few times in a number examples and in general with heavy praise.  Joel and I agree the iPhone is an amazing device, an important step forward in mobile computing.  After this Joel and I begin to disagree, namely around one key point: "_The iPhone is a game changer._"  I think that statement needs to add "_for the consumer market_". 
+Joel said he likes his iPhone and from the huge number of videos from
+Cisco featuring an iPhone it's safe to assume Cisco does too. During the
+keynote Joel pointed out the iPhone a few times in a number examples and
+in general with heavy praise. Joel and I agree the iPhone is an amazing
+device, an important step forward in mobile computing. After this Joel
+and I begin to disagree, namely around one key point: "_The iPhone is a
+game changer._" I think that statement needs to add "_for the consumer
+market_".
 
-<div class="wp-caption" style="float: left;margin: 5px;margin-left: 5px;margin-right: 21px;"><a title="Figure 3: The iPhone" rel="lightbox" href="http://praetorianprefect.com/wp-content/uploads/2009/10/us-them.png"><img src="http://praetorianprefect.com/wp-content/uploads/2009/10/iphone_home.gif" border="1" alt="Us vs Them" width="200" height="330" /> </a>
-<p class="wp-caption-text"><a title="Figure 3: The iPhone" rel="lightbox" href="http://praetorianprefect.com/wp-content/uploads/2009/10/iphone_home.gif">Figure 3: The iPhone</a></p></div>
+<div class="wp-caption" style="float: left;margin: 5px;margin-left: 5px;margin-right: 21px;"><a title="Figure 3: The iPhone" rel="lightbox" href="/images/iphone_home.gif"><img src="/images/iphone_home.gif" border="1" alt="Us vs Them" width="200" height="330" /> </a>
+<p class="wp-caption-text"><a title="Figure 3: The iPhone" rel="lightbox" href="/images/iphone_home.gif">Figure 3: The iPhone</a></p></div>
 
-iPhones are enabling users to use the Internet from almost anyplace; it's one of the most popular cameras on [flickr](http://www.flickr.com/cameras/), has a huge list of applications, and, for some people, a complete replacement for the traditional computer.  While its strong points work well in the consumer market, in the enterprise markets it's a very different beast.  In fact the strongest points for the iPhone in the consumer market are security concerns for the enterprise.  Application controls are limited, centralized control is even more limited, and encryption of the data residing on the devices is a [problem](http://www.wired.com/gadgetlab/2009/07/iphone-encryption/) on the most fully featured phone to date.  
+iPhones are enabling users to use the Internet from
+almost anyplace; it's one of the most popular cameras on
+[flickr](http://www.flickr.com/cameras/), has a huge list of
+applications, and, for some people, a complete replacement for
+the traditional computer. While its strong points work well
+in the consumer market, in the enterprise markets it's a very
+different beast. In fact the strongest points for the iPhone in
+the consumer market are security concerns for the enterprise.
+Application controls are limited, centralized control is even more
+limited, and encryption of the data residing on the devices is a
+[problem](http://www.wired.com/gadgetlab/2009/07/iphone-encryption/) on
+the most fully featured phone to date.
 
-Devices like the iPhone should be thought of less as a phone and more as a laptop. With that comes all the same protections and controls that we use to mitigate risk on an enterprise laptop. Here is a quick list of what I expect from a laptop and by extension from an iPhone for it to become a viable remote access device in the enterprise environment:
+Devices like the iPhone should be thought of less as a phone and more as
+a laptop. With that comes all the same protections and controls that we
+use to mitigate risk on an enterprise laptop. Here is a quick list of
+what I expect from a laptop and by extension from an iPhone for it to
+become a viable remote access device in the enterprise environment:
 
 * Virus and Malware software with centralized reporting
 * Secure communications for the device; both internal resources and the ability to define policies
@@ -272,12 +337,34 @@ Devices like the iPhone should be thought of less as a phone and more as a lapto
 * Web Filter/Proxy controls
 * Access controls, password complexity settings and password failure data destruction
 
-Some of the areas listed are available on the iPhone, but none of them are near complete and ready for everyday use in an enterprise.  [Research In Motion](http://www.rim.com/) (RIM) dominates the enterprise market for the reasons I have listed here.  RIM via the BlackBerry Enterprise Server (BES) gives the enterprise complete control of every device that connects via a centralized management station.  BES also does network traffic correctly in that all devices came back to the BES at a single point of entry into the enterprise.  This allows an enterprise to place additional control directly attached to the BES and not with multiple devices all over the network.  RIM's BES product represents the minimum level of security that should be expected for remote access of phone like devices. I would go so far as to say it should be the starting standard for how remote access devices should behave. 
+Some of the areas listed are available on the iPhone, but none of them
+are near complete and ready for everyday use in an enterprise. [Research
+In Motion](http://www.rim.com/) (RIM) dominates the enterprise market
+for the reasons I have listed here. RIM via the BlackBerry Enterprise
+Server (BES) gives the enterprise complete control of every device that
+connects via a centralized management station. BES also does network
+traffic correctly in that all devices came back to the BES at a single
+point of entry into the enterprise. This allows an enterprise to place
+additional control directly attached to the BES and not with multiple
+devices all over the network. RIM's BES product represents the minimum
+level of security that should be expected for remote access of phone
+like devices. I would go so far as to say it should be the starting
+standard for how remote access devices should behave.
 
-The iPhone might be the start of things to come, but in no way is it even close to ready for the enterprise market.  
+The iPhone might be the start of things to come, but in no way is it
+even close to ready for the enterprise market.
 
 ## Why?
 
-Cisco's push with Borderless Networks is either something that they haven't completely vetted from a security perspective or the security strategy isn't completely explained in the marketing.  The huge increase in the number of points needing protection, the corresponding increase in the policy and management, and management data flow and access controls are areas that need addressing.  These are problems we still having troubles controlling with our current network deployments.  Unless Cisco has a magic bullet coming out of their research and development departments, I don't see how this move to Borderless Networks is even possible.  
+Cisco's push with Borderless Networks is either something that they
+haven't completely vetted from a security perspective or the security
+strategy isn't completely explained in the marketing. The huge increase
+in the number of points needing protection, the corresponding increase
+in the policy and management, and management data flow and access
+controls are areas that need addressing. These are problems we still
+having troubles controlling with our current network deployments. Unless
+Cisco has a magic bullet coming out of their research and development
+departments, I don't see how this move to Borderless Networks is even
+possible.
 
 
