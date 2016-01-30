@@ -10,6 +10,8 @@ tags:
   - python 
   - migrated
 author: jrossi
+header:
+    image_fullwidth: "header-door.jpg"
 description: |
     Yesterday we spent some time speculating on how phishing attacks like
     the one afflicting Twitter on Wednesday of this week are seeded. How are
