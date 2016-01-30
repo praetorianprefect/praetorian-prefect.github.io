@@ -23,16 +23,17 @@ teaser: |
 ---
 
 
-A report has been received from Juniper at 4:25pm under bulletin PSN-2010-01-623 that a 
-crafted malformed TCP field option in the TCP header of a packet will cause the JUNOS kernel 
-to core (crash). In other words the kernel on the network device (gateway router) will 
-crash and reboot if a packet containing this crafted option is received on a listening 
-TCP port. The JUNOS firewall filter is unable to filter a TCP packet with this issue. 
-Juniper claims this issue as exploit was identified during investigation of a vendor 
-interoperability issue.
+A report has been received from Juniper at 4:25pm under bulletin
+PSN-2010-01-623 that a crafted malformed TCP field option in the TCP
+header of a packet will cause the JUNOS kernel to core (crash). In other
+words the kernel on the network device (gateway router) will crash
+and reboot if a packet containing this crafted option is received on
+a listening TCP port. The JUNOS firewall filter is unable to filter a
+TCP packet with this issue. Juniper claims this issue as exploit was
+identified during investigation of a vendor interoperability issue.
 
-There is talk that backbone Internet providers have been quickly patching this issue 
-since yesterday night. 
+There is talk that backbone Internet providers have been quickly        
+patching this issue since yesterday night.                              
 
 ### TCP Header Option Space
 
@@ -43,13 +44,15 @@ since yesterday night.
 > (Source: http://www.networksorcery.com/enp/protocol/tcp.htm)
 
 <a href="/images/tcp_header1.jpg"><img src="/images/tcp_header1.jpg" alt="The TCP Header" title="tcp_header1" width="300" height="124" class="size-medium wp-image-2819" /></a>
+
 Source: http://www.software-engineer-training.com/wp-content/uploads/2007/12/tcp_header.png
 
 ### The Kernel
 
-At a high level, the kernel in an operating system serves as the bridge between applications 
-and the actual data processing of the hardware the OS is running on. The kernel manages 
-system resources and abstracts resources that applications must access.
+At a high level, the kernel in an operating system serves as the bridge
+between applications and the actual data processing of the hardware the
+OS is running on. The kernel manages system resources and abstracts
+resources that applications must access.
 
 <a href="/images/kernel.png"><img src="/images/kernel.png" alt="Basic Kernel Representation" title="kernel" width="300" height="237" class="size-medium wp-image-2837" /></a>
 
@@ -95,10 +98,10 @@ as follows:
 > "that the bulletin was one of seven security advisories the company issued 
 > under a policy designed to prevent members of the public at large from getting details 
 > of the vulnerabilities."
-
+> 
 > "Because of Juniper's 'Entitled Disclosure Policy,' only our customers and partners 
 > are allowed access to the details of the Security Advisory," 
-
+> 
 > - Juniper spokeswoman
 
 Interesting approach, and probably would be better received if vulnerabilities only 
