@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: JUNOS (Juniper) Kernel Crash Video
 date: 2010-01-07 
 categories: 
@@ -12,12 +12,7 @@ tags:
   - crash
   - junos
   - migrated
-series:
-  - "Praetorian Prefect"
-slug: juniper-kernel-crash-video
-aliases:
-  - /juniper-kernel-crash-video.html
-author: Jeremy Rossi
+author: jrossi
 teaser: |
     We have noted some interesting responses since our post yesterday
     detailing the information in Juniper bulletin PSN-2010-01-623 and our thoughts 
