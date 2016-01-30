@@ -18,8 +18,8 @@ slug: juniper-kernel-crash-video
 aliases:
   - /juniper-kernel-crash-video.html
 author: Jeremy Rossi
-discription: |
-    We have noted some interesting responses since [our post yesterday](http://praetorianprefect.com/archives/2010/01/junos-juniper-flaw-exposes-core-routers-to-kernal-crash/) 
+teaser: |
+    We have noted some interesting responses since our post yesterday
     detailing the information in Juniper bulletin PSN-2010-01-623 and our thoughts 
     on its somewhat understated effect. Since our post yesterday, the bulletin 
     has been updated, becoming more specific about the versions affected (basically 
