@@ -116,7 +116,7 @@ Well, let's see. Using a simple python program that tried known
 incorrect passwords as fast as the the API would respond (but well below
 DOS thresholds), we have this:
 
-```bash
+```
 
 [~]% time python twitterauthcheck.py
 Login: _eeeeeeeek Password: 0 failed: HTTP Error 401: Unauthorized
