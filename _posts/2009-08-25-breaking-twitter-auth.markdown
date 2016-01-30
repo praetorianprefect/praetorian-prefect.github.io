@@ -134,6 +134,7 @@ Login: _eeeeeeeek Password: 298 failed: HTTP Error 401: Unauthorized
 Login: _eeeeeeeek Password: 299 failed: HTTP Error 401: Unauthorized
 Login: _eeeeeeeek Password: <redacted> accepted
 /opt/local/bin/python2.6 testingauth.py  2.03s user 1.47s system 1% cpu 4:25.05 total
+
 ```
 
 So looking at the details we have 300 passwords attempted in 2 minutes
