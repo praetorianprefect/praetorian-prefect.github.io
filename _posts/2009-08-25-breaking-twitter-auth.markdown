@@ -1,7 +1,7 @@
 ---
+layout: page
 title: Breaking Twitter (Authenication)
-date: "2009-08-25"
-categories: 
+category: 
   - security
 tags: 
   - security
@@ -9,12 +9,7 @@ tags:
   - authenication 
   - python 
   - migrated
-series:
-  - "Praetorian Prefect"
-aliases:
-  - /breaking-twitter-authenication.html
-slug: breaking-twitter-authenication
-author: Jeremy Rossi
+author: jrossi
 description: |
     Yesterday we spent some time speculating on how phishing attacks like
     the one afflicting Twitter on Wednesday of this week are seeded. How are
@@ -158,7 +153,7 @@ Running the script is slow. Twitter's greatest defense here against
 a true brute force attack using a single thread is that it takes a
 while for their infrastructure to respond. We can call that security
 through lack of capacity. Since a good password cracker takes more then
-a few hundred entries to work ([this LOphtCrack dictionary has 235,007 entries.](http://praetorianprefect.com/wp-content/uploads/2009/09/dic.tx t)), 
+a few hundred entries to work ([this LOphtCrack dictionary has 235,007 entries.](http://praetorianprefect.com/wp-content/uploads/2009/09/dic.txt)), 
 we'll go multi-threaded.
 
 In a final controlled example, we use a known account where one person
