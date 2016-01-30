@@ -12,6 +12,8 @@ tags:
   - crash
   - junos
   - migrated
+header: 
+  image_fullwidth: "header-nuclear-weapons.jpg"
 author: jrossi
 teaser: |
     We have noted some interesting responses since our post yesterday
