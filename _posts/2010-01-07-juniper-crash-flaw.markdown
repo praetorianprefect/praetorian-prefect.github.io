@@ -1,9 +1,8 @@
 ---
-layout: post
 title: "JUNOS (Juniper) Flaw Exposes Core Routers to Kernel Crash"
-date: 2010-01-07
 categories: 
   - security
+  - networking
 tags: 
   - juniper
   - tcp
@@ -11,13 +10,8 @@ tags:
   - networking 
   - crash
   - junos
-series:
-  - "Praetorian Prefect"
-slug: juniper-flaw-exposes-core-routers-to-kernel-crash
-author: Jeremy Rossi
-aliases:
-  - /juniper-flaw-exposes-core-routers-to-kernel-crash.html
-description: |
+author: jrossi
+teaser: |
     A report has been received from Juniper at 4:25pm under bulletin PSN-2010-01-623 that a 
     crafted malformed TCP field option in the TCP header of a packet will cause the JUNOS kernel 
     to core (crash). In other words the kernel on the network device (gateway router) will 
@@ -47,7 +41,7 @@ since yesterday night.
 >
 > (Source: http://www.networksorcery.com/enp/protocol/tcp.htm)
 
-[caption id="attachment_2819" align="alignnone" width="300" caption="The TCP Header"]<a href="http://praetorianprefect.com/wp-content/uploads/2010/01/tcp_header1.jpg"><img src="http://praetorianprefect.com/wp-content/uploads/2010/01/tcp_header1-300x124.jpg" alt="The TCP Header" title="tcp_header1" width="300" height="124" class="size-medium wp-image-2819" /></a>[/caption]
+<a href="/images/tcp_header1.jpg"><img src="/images/tcp_header1.jpg" alt="The TCP Header" title="tcp_header1" width="300" height="124" class="size-medium wp-image-2819" /></a>
 Source: http://www.software-engineer-training.com/wp-content/uploads/2007/12/tcp_header.png
 
 ### The Kernel
@@ -56,7 +50,7 @@ At a high level, the kernel in an operating system serves as the bridge between 
 and the actual data processing of the hardware the OS is running on. The kernel manages 
 system resources and abstracts resources that applications must access.
 
-[caption id="attachment_2837" align="alignnone" width="300" caption="Basic Kernel Representation"]<a href="http://praetorianprefect.com/wp-content/uploads/2010/01/kernel.png"><img src="http://praetorianprefect.com/wp-content/uploads/2010/01/kernel-300x237.png" alt="Basic Kernel Representation" title="kernel" width="300" height="237" class="size-medium wp-image-2837" /></a>[/caption]
+<a href="/images/kernel.png"><img src="/images/kernel.png" alt="Basic Kernel Representation" title="kernel" width="300" height="237" class="size-medium wp-image-2837" /></a>
 
 ### Affected Devices
 
