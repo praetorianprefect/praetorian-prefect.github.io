@@ -12,7 +12,7 @@ tags:
 author: jrossi
 header:
     image_fullwidth: "header-door.jpg"
-description: |
+teaser: |
     Yesterday we spent some time speculating on how phishing attacks like
     the one afflicting Twitter on Wednesday of this week are seeded. How are
     the original direct messages sent out that kick off the first stolen
