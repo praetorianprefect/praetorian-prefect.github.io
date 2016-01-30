@@ -59,7 +59,7 @@ Barack Obama and Britney Spears?
 <div class="panel panel-default .col-md-6" >
   <div class="panel-body">
 
-<a href="http://praetorianprefect.com/wp-content/uploads/2009/09/obama-twitter-hacked.jpg"><img src="http://praetorianprefect.com/wp-content/uploads/2009/09/obama-twitter-hacked.jpg" alt="Back in January the @BarackObama account was broken into." title="obama-twitter-hacked" width="500" height="327" class="size-full wp-image-576" /></a>
+<a href="/images/obama-twitter-hacked.jpg"><img src="/images/obama-twitter-hacked.jpg" alt="Back in January the @BarackObama account was broken into." title="obama-twitter-hacked" width="500" height="327" class="size-full wp-image-576" /></a>
 
 <br>
 
@@ -153,7 +153,7 @@ Running the script is slow. Twitter's greatest defense here against
 a true brute force attack using a single thread is that it takes a
 while for their infrastructure to respond. We can call that security
 through lack of capacity. Since a good password cracker takes more then
-a few hundred entries to work ([this LOphtCrack dictionary has 235,007 entries.](http://praetorianprefect.com/wp-content/uploads/2009/09/dic.txt)), 
+a few hundred entries to work ([this LOphtCrack dictionary has 235,007 entries.](/misc/dic.txt)), 
 we'll go multi-threaded.
 
 In a final controlled example, we use a known account where one person
@@ -182,9 +182,9 @@ good faith disclosure, we have notified them of our concerns. _Update_:
 A Twitter representative has responded that the information provided has
 been sent on to the right internal team at Twitter.
 
-Here's the Code: <a href="http://praetorianprefect.com/wp-content/uploads/2009/09/threadedtwitter.py.txt" title="threadedtwitter.py">threadedtwitter.py</a>
+Here's the Code: <a href="/misc/threadedtwitter.py.txt" title="threadedtwitter.py">threadedtwitter.py</a>
 <br>
-Dictionary: <a href="http://praetorianprefect.com/wp-content/uploads/2009/09/dic.txt" title="dic.txt">dic.txt</a>
+Dictionary: <a href="/misc/dic.txt" title="dic.txt">dic.txt</a>
 
 _Please note, the code is provided for demonstration purposes only, should not be run ever, and contains intentional errors so that attempts to run it will not work._
 
