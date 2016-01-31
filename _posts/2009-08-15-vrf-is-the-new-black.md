@@ -13,6 +13,8 @@ tags:
   - networking
   - security
 author: jrossi
+header: 
+  image_fullwidth: "header-airplane.jpg"
 teaser:  |
     Breaking up your network is good, we all know this, and VLANs have
     traditionally been used to segment a network to help with maintenance,
@@ -63,12 +65,15 @@ VPNs between routers, namely MPLS. VRFs are very common in service providers
 networks and at some point nearly all internet traffic passes through a VRF or
 two.
 
-VRF Lite allows for interfaces on a physical router to belong to a routing instance.  This routing instance has its own forwarding table, ARP entries, and everything else needed to make a forwarding decision.  It can simply be thought of as a router within a router (*<a title="Routers in router" rel="lightbox" href="/images/router-in-router.png"> Figure 1</a>*).
+VRF Lite allows for interfaces on a physical router to belong
+to a routing instance. This routing instance has its own
+forwarding table, ARP entries, and everything else needed to make
+a forwarding decision. It can simply be thought of as a router
+within a router (*<a title="Routers in router" rel="lightbox"
+href="/images/router-in-router.png"> Figure 1</a>*).
 
 <div class="wp-caption" style="float: right;margin: 5px;margin-left: 60px;margin-right: 21px;"><a title="Routers in router" rel="lightbox" href="/images/router-in-router.png"> <img src="/images/router-in-router.png" border="0" alt="router in router.png" width="200" height="135" />
-<p class="wp-caption-text">Figure 1: Routers within Router</p>
-
-</a></div>
+<p class="wp-caption-text">Figure 1: Routers within Router</p></a></div>
 
 This structure makes VRFs useful for many applications and as a solution to
 quite a few tough network design issues. It can be used to improve the network
@@ -250,7 +255,9 @@ set routing-instances DMZ instance-type virtual-router
 set routing-instances DMZ interface fe-0/0/0.300
 
 ~~~ 
+
 View the results and commit the change.
+
 ~~~ bash
 [edit]
 jrossi@junos-1# show routing-instances
@@ -728,11 +735,15 @@ Gateway of last resort is not set
 C       10.10.10.0 is directly connected, GigabitEthernet0/0.300
 ios-1#
 ~~~ 
+
 Now lets do a little routing.  Just like in the JunOS example a simple static route should be sufficient.
+
 ~~~ bash
 ios-1(config)#ip route vrf Trust 0.0.0.0 0.0.0.0 192.168.10.2
 ~~~ 
+
 The `Trust` routing instance table now looks like the following.
+
 ~~~ bash
 ios-1(config)#do show ip route vrf Trust
 
@@ -754,7 +765,6 @@ S*   0.0.0.0/0 [1/0] via 192.168.10.2
 ~~~ 
 
 ### VRF Lite Setup on Juniper ScreenOS {#setup-screenos}
-<div class="wp-caption" style="float: right;margin: 5px"><img src="/images/ssg-5-shjpg.jpeg" border="0" alt="SSG-5-SH.jpg.jpeg" width="300" height="60" /></div>
 
 Juniper ScreenOS version 6.2.0r2.0 used here is very new and has been working
 very well for me in testing.
@@ -881,18 +891,20 @@ We now have all the information we need to begin the process. Here is a
 simplified table to make moving forward a little easier:
 
 ##### Current
-| Interface   | Zone     | Routing Instance  |
-|-------------|----------|-------------------|
-| serial0/0   | Null     | trust-vr          |
-| eth0/0      | Untrust  | trust-vr          |
-| eth0/1      | DMZ      | trust-vr          |
-| wireless0/0 | Trust    | trust-vr          |
+
+ Interface   | Zone     | Routing Instance  
+-------------|----------|-------------------
+ serial0/0   | Null     | trust-vr          
+ eth0/0      | Untrust  | trust-vr          
+ eth0/1      | DMZ      | trust-vr         
+ wireless0/0 | Trust    | trust-vr          
 
 Now let's start by creating the one routing instance that is not already setup by default.
 
 ~~~ bash
 screenos-1-> set vrouter name dmz-vr
 ~~~ 
+
 Now let's see how this shows up on the device.
 
 ~~~ bash
@@ -1033,8 +1045,9 @@ IPv4 Dest-Routes for <dmz-vr> (2 entries)
 [^2]: Yes, yes. I know I could do everything at once and commit last, and that is one of the reasons I love JunOS, but this is also about building and seeing each change and how it affects the overall router
 
 [^3]:Table of Vender and VRF naming conventions
+
    Vendor  | OS       | VRF-Lite       | VRF   | Notes
-   ---------|----------|----------------|-------|------
+   --------|----------|----------------|-------|----------
    Juniper | JunOS    | Virtual Router | VRF   | JunOS has many others ways of preforming VRF functions. More details <a href="http://www.juniper.net/techpubs/software/junos/junos85/swconfig85-vpns/frameset.html">here</a>
    Juniper | ScreenOS | Virtual Router | _N/A_ |
    Cisco   | IOS      | VRF Lite       | VRF   |
