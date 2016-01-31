@@ -1,6 +1,6 @@
 ---
+layout: page
 title: "VRF is the new Black: How I Learned to Stop Worrying and Love the Complexity"
-date: 2009-08-15 
 categories: 
   - networking
 tags: 
@@ -12,10 +12,9 @@ tags:
   - vrf 
   - networking
   - security
-slug: vrd-is-the-new-black
 author: jrossi
 teaser:  |
-    Breaking up your network *"is good,"* we all know this, and VLANs have
+    Breaking up your network is good, we all know this, and VLANs have
     traditionally been used to segment a network to help with maintenance,
     management, and security; but, they are not the only game in town and often the
     wrong place to break your network into smaller and more efficient pieces. VPN
@@ -64,9 +63,9 @@ VPNs between routers, namely MPLS. VRFs are very common in service providers
 networks and at some point nearly all internet traffic passes through a VRF or
 two.
 
-VRF Lite allows for interfaces on a physical router to belong to a routing instance.  This routing instance has its own forwarding table, ARP entries, and everything else needed to make a forwarding decision.  It can simply be thought of as a router within a router (*<a title="Routers in router" rel="lightbox" href="http://praetorianprefect.com/wp-content/uploads/2009/05/router-in-router.png"> Figure 1</a>*).
+VRF Lite allows for interfaces on a physical router to belong to a routing instance.  This routing instance has its own forwarding table, ARP entries, and everything else needed to make a forwarding decision.  It can simply be thought of as a router within a router (*<a title="Routers in router" rel="lightbox" href="/images/router-in-router.png"> Figure 1</a>*).
 
-<div class="wp-caption" style="float: right;margin: 5px;margin-left: 60px;margin-right: 21px;"><a title="Routers in router" rel="lightbox" href="http://praetorianprefect.com/wp-content/uploads/2009/05/router-in-router.png"> <img src="http://praetorianprefect.com/wp-content/uploads/2009/05/router-in-router.png" border="0" alt="router in router.png" width="200" height="135" />
+<div class="wp-caption" style="float: right;margin: 5px;margin-left: 60px;margin-right: 21px;"><a title="Routers in router" rel="lightbox" href="/images/router-in-router.png"> <img src="/images/router-in-router.png" border="0" alt="router in router.png" width="200" height="135" />
 <p class="wp-caption-text">Figure 1: Routers within Router</p>
 
 </a></div>
@@ -86,15 +85,15 @@ pushed beyond reasonableness when it comes to how a network architecture should
 be built. A good example of this is 10 Gig and 1 Gig Ethernet MANs[^1] that span
 multiple buildings and datacenters into a single campus. An overview of a large
 campus network can been seen in <a title="Large MAN Overview" rel="lightbox"
-href="http://praetorianprefect.com/wp-content/uploads/2009/04/man-example.png">Figure 2</a>.
+href="/images/man-example.png">Figure 2</a>.
 
 In our example network, creating wired guest access would require the use
 of firewalls in each building or extending VLANs between buildings to the
 centralized firewalls in the datecenter. Both options have downsides that VRFs
 would be better at solving.
 
-<div class="wp-caption" style="float: right;margin: 5px;margin-left: 60px;margin-right: 21px;"><a title="Figure 1: Large MAN Overview" rel="lightbox" href="http://praetorianprefect.com/wp-content/uploads/2009/04/man-example.png"><img src="http://praetorianprefect.com/wp-content/uploads/2009/04/man-example.png" border="1" alt="MAN Network Diagram" width="200" height="204" /> </a>
-<p class="wp-caption-text"><a title="Figure 1: Large MAN Overview" rel="lightbox" href="http://praetorianprefect.com/wp-content/uploads/2009/04/man-example.png">Figure 2: Large MAN Overview</a></p>
+<div class="wp-caption" style="float: right;margin: 5px;margin-left: 60px;margin-right: 21px;"><a title="Figure 1: Large MAN Overview" rel="lightbox" href="/images/man-example.png"><img src="/images/man-example.png" border="1" alt="MAN Network Diagram" width="200" height="204" /> </a>
+<p class="wp-caption-text"><a title="Figure 1: Large MAN Overview" rel="lightbox" href="/images/man-example.png">Figure 2: Large MAN Overview</a></p>
 
 </div>
 
@@ -191,7 +190,7 @@ table[^2]. We will be using VLANs on ethernet interfaces to break up the router
 
 Enable VLAN tagging on the interfaces and create some sub interfaces.
 
-```bash
+~~~ bash
 set interfaces fe-0/0/0 vlan-tagging
 set interfaces fe-0/0/0 unit 100 vlan-id 100
 set interfaces fe-0/0/0 unit 100 description "Untrust"
@@ -201,11 +200,11 @@ set interfaces fe-0/0/0 unit 300 vlan-id 300
 set interfaces fe-0/0/0 unit 300 description "DMZ"
 set interfaces fe-0/0/0 unit 400 vlan-id 400
 set interfaces fe-0/0/0 unit 400 description "Trust"
-```
+~~~
 
 The verify the results and commit the changes.
 
-```bash
+~~~ bash
 [edit]
 jrossi@junos-1# show interfaces
 fe-0/0/0 {
@@ -232,7 +231,7 @@ fe-0/0/0 {
 jrossi@junos-1# commit
 commit complete
 
-```
+~~~ 
 
 Now let's create three new routing-instances: Trust, Untrust, and DMZ. The
 `instance-type ` supports quite a few option types on JunOS, but to to create a
@@ -240,7 +239,7 @@ VRF Lite instance we just need to use `virtual-router`. We also need to assign
 interfaces to each newly created instance. This is very different than in Cisco
 IOS in that one configures VRF in the interface configuration hierarchy.
 
-```bash
+~~~ bash
 show routing-instances
 set routing-instances Trust instance-type virtual-router
 set routing-instances Trust interface fe-0/0/0.200
@@ -250,9 +249,9 @@ set routing-instances Untrust interface fe-0/0/0.100
 set routing-instances DMZ instance-type virtual-router
 set routing-instances DMZ interface fe-0/0/0.300
 
-```
+~~~ 
 View the results and commit the change.
-```bash
+~~~ bash
 [edit]
 jrossi@junos-1# show routing-instances
 Trust {
@@ -273,14 +272,14 @@ DMZ {
 jrossi@junos-1# commit
 commit complete
 
-```
+~~~ 
 
 Now, we have the interfaces configured and set up without addresses. If we look
 at the routing table nothing shows up because we have not enabled any interface
 families. Once we add address to the `family inet` interface configuration, the
 routing table will begin to take shape.
 
-```bash
+~~~ bash
 jrossi@junos-1# run show route
 
 inet.0: 6 destinations, 6 routes (6 active, 0 holddown, 0 hidden)
@@ -300,22 +299,22 @@ inet.0: 6 destinations, 6 routes (6 active, 0 holddown, 0 hidden)
                      MultiRecv
 
 __juniper_private2__.inet.0: 1 destinations, 1 routes (0 active, 0 holddown, 1 hidden)
-```
+~~~ 
 
 Let's add some interface `family inet` addresses. I am going to use overlapping
 address ranges to show that when VRF is used they do not interfere with each
 other.
 
-```bash
+~~~ bash
 set interfaces fe-0/0/0 unit 100 family inet address 10.10.10.1/24
 set interfaces fe-0/0/0 unit 200 family inet address 172.16.10.1/24
 set interfaces fe-0/0/0 unit 300 family inet address 10.10.10.1/24
 set interfaces fe-0/0/0 unit 400 family inet address 192.168.10.1/24
-```
+~~~ 
 
 Now let's verify the changes and commit them.
 
-```bash
+~~~ bash
 jrossi@junos-1# show interfaces fe-0/0/0 
 vlan-tagging;
 unit 100 {
@@ -350,7 +349,7 @@ unit 400 {
 [edit]
 jrossi@junos-1# commit 
 commit complete
-```
+~~~ 
 
 When we look into the routing you see much more information and can even see the
 different routing instances. The global routing table `inet.0` is the default
@@ -358,7 +357,7 @@ table your would normally work with. Further down the list you see `DMZ.inet.0`,
 `Trust.inet.0`, and `Untrust.inet.0`; they are the newly created VRF Lite
 routing instances.
 
-```bash
+~~~ bash
 [edit]
 jrossi@junos-1# run show route 
 
@@ -410,7 +409,7 @@ Untrust.inet.0: 2 destinations, 2 routes (2 active, 0 holddown, 0 hidden)
 
 
 
-```
+~~~ 
 
 While having interfaces with addresses and different routing tables is cool and
 all, this does next to nothing as there is no real routing going on so let's add
@@ -421,13 +420,13 @@ commands to perform this are almost exactly the same for the global routing
 table. The only difference is that you start under the `routing-instances `
 configuration hierarchy. This also applies for routing protocols.
 
-```bash
+~~~ bash
 set routing-instances Trust routing-options static route 0.0.0.0/0 next-hop 192.168.10.2
-```
+~~~ 
 
 Now let's verify our configuration and commit the change.
 
-```bash
+~~~ bash
 [edit]
 jrossi@junos-1# show routing-instances Trust 
 instance-type virtual-router;
@@ -442,13 +441,13 @@ routing-options {
 [edit]
 jrossi@junos-1# commit 
 commit complete
-```
+~~~ 
 
 Now let's take a look at the `Trust.inet.0` routing table. This time we are
 going limit our show route command to just the `Trust` table.
 
 
-```bash
+~~~ bash
 [edit]
 jrossi@junos-1# run show route table Trust 
 
@@ -465,7 +464,7 @@ Trust.inet.0: 5 destinations, 5 routes (5 active, 0 holddown, 0 hidden)
                     > via fe-0/0/0.400
 192.168.10.1/32    *[Local/0] 00:56:56
                       Local via fe-0/0/0.400
-```
+~~~ 
 
 ### VRF Lite Setup on Cisco IOS {#setup-ios}
 
@@ -481,7 +480,7 @@ Just like in the JunOS Example, we are going to create some sub-interfaces to
 start off with.
 
 
-```bash
+~~~ bash
 ios-1(config)#int gi0/0
 ios-1(config-if)#no shut
 ios-1(config-i)#int gi0/0.100
@@ -496,11 +495,11 @@ ios-1(config-subif)#encapsulation dot1Q 300
 ios-1(config-subif)#int gi0/0.400
 ios-1(config-subif)#description Trust
 ios-1(config-subif)#encapsulation dot1Q 400
-```
+~~~ 
 
 Just a quick peek to see that things are as we expect them.
 
-```bash
+~~~ bash
 ios-1(config-subif)#do show ip int br
 Interface                  IP-Address      OK? Method Status                Protocol
 GigabitEthernet0/0         unassigned      YES NVRAM  up                    up
@@ -569,19 +568,19 @@ Lo100                          up             up
 Lo666                          up             up
 Tu255                          up             up
 
-```
+~~~ 
 
 Much like in the JunOS configuration we will now create three new routing
 instances (VRF Lite).
 
-```bash
+~~~ bash
 ios-1(config)#ip vrf
 ios-1(config)#ip vrf Untrust
 ios-1(config-vrf)#ip vrf Untrust
 ios-1(config-vrf)#description Scary wild wild west
 ios-1(config-vrf)#ip vrf Trust
 ios-1(config-vrf)#ip vrf DMZ
-```
+~~~ 
 
 > I don't give a hoot in Hell how you do it, you just get me to the Primary, ya hear!
 >
@@ -597,7 +596,7 @@ be removed. This is done to make sure that conflicts or pollution of the new
 routing table doesn't happen unintentionally.
 
 
-```bash
+~~~ bash
 ios-1(config)#int gi0/0.100
 ios-1(config-subif)#ip vrf forwarding Untrust
 ios-1(config-subif)#ip address 10.10.10.1 255.255.255.0
@@ -611,23 +610,23 @@ ios-1(config-subif)#int gi0/0.400
 ios-1(config-subif)#ip vrf forwarding Trust
 ios-1(config-subif)#ip address 192.168.10.1 255.255.255.0
 
-```
+~~~ 
 
 Before we move forward, let's look into some of the show commands around VRFs on IOS.
 
-```bash
+~~~ bash
 ios-1#show ip vrf 
   Name                             Default RD          Interfaces
   DMZ                              <not set>           Gi0/0.300
   Trust                            <not set>           Gi0/0.200
                                                        Gi0/0.400
   Untrust                          <not set>           Gi0/0.100
-```
+~~~ 
 
 The command `show ip route` Cisco IOS will not show you anything about the other
 routing instances, just the global table.
 
-```bash
+~~~ bash
 ios-1(config-subif)#do show ip route
 Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
        D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
@@ -652,12 +651,12 @@ C       192.168.1.1 is directly connected, Loopback1
 C    192.168.69.0/24 is directly connected, Loopback69
 O    192.168.2.0/24 [110/1001] via 192.168.255.1, 1d07h, Tunnel255
 S*   0.0.0.0/0 [1/0] via 1.1.1.2
-```
+~~~ 
 
 Using the command `show ip route vrf ` we can see into each routing table, or
 the use of `show ip route vrf *` will let us see them all at once.
 
-```
+~~~ 
 ios-1#show ip route vrf *
 Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
        D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
@@ -728,13 +727,13 @@ Gateway of last resort is not set
      10.0.0.0/24 is subnetted, 1 subnets
 C       10.10.10.0 is directly connected, GigabitEthernet0/0.300
 ios-1#
-```
+~~~ 
 Now lets do a little routing.  Just like in the JunOS example a simple static route should be sufficient.
-```bash
+~~~ bash
 ios-1(config)#ip route vrf Trust 0.0.0.0 0.0.0.0 192.168.10.2
-```
+~~~ 
 The `Trust` routing instance table now looks like the following.
-```bash
+~~~ bash
 ios-1(config)#do show ip route vrf Trust
 
 Routing Table: Trust
@@ -752,10 +751,10 @@ C    192.168.10.0/24 is directly connected, GigabitEthernet0/0.400
      172.16.0.0/24 is subnetted, 1 subnets
 C       172.16.10.0 is directly connected, GigabitEthernet0/0.200
 S*   0.0.0.0/0 [1/0] via 192.168.10.2
-```
+~~~ 
 
 ### VRF Lite Setup on Juniper ScreenOS {#setup-screenos}
-<div class="wp-caption" style="float: right;margin: 5px"><img src="http://praetorianprefect.com/wp-content/uploads/2009/05/ssg-5-shjpg.jpeg" border="0" alt="SSG-5-SH.jpg.jpeg" width="300" height="60" /></div>
+<div class="wp-caption" style="float: right;margin: 5px"><img src="/images/ssg-5-shjpg.jpeg" border="0" alt="SSG-5-SH.jpg.jpeg" width="300" height="60" /></div>
 
 Juniper ScreenOS version 6.2.0r2.0 used here is very new and has been working
 very well for me in testing.
@@ -766,7 +765,7 @@ some other limits that you should verify yourself before starting. Using the
 command `get license-key` will show all the limits for the hardware. The key
 things to look for are: *Vrouters*, *Zones*, and *VLANs*.
 
-```bash
+~~~ bash
 screenos-1-> get license-key 
 extended_key        : XXXXXXXXXXXXX+XXXXXXXXXXXXXXXXXXXXXXX+XXXXXXXXXXXX
                       XXXXXXXXXXXXXXXXXXX/
@@ -798,7 +797,7 @@ Url Filtering:      Disable
 Update server url: nextwave.netscreen.com/key_retrieval
 License key auto update : Disabled
 Auto update interval : 0 days
-```
+~~~ 
 
 Unlike IOS and JunOS: ScreenOS does not have a concept of Global routing
 instance. Every interface must be in routing instances and can not have any
@@ -809,7 +808,7 @@ first.
 The default ScreenOS puts all interfaces into the `Trust-vr` routing instance so
 let's start by checking what is already set up.
 
-```bash
+~~~ bash
 screenos-1-> get vrouter
 * indicates default vrouter 
 A - AutoExport, R - RIP, N- NHRP, O - OSPF, B - BGP, P - PIM
@@ -819,13 +818,13 @@ A - AutoExport, R - RIP, N- NHRP, O - OSPF, B - BGP, P - PIM
 *   2 trust-vr                 Root                 shared      4/max       0/max       
 
 total 2 vrouters shown and 0 of them defined by user
-```
+~~~ 
 
 As you can see there are already 2 routing instances set up. Let's take a look
 at the interfaces that belong to each. To do this we need to see what zones are
 mapped to which routing instances.
 
-```bash
+~~~ bash
 screenos-1-> get zone  
 Total 14 zones created in vsys Root - 8 are policy configurable.
 Total policy configurable zones for Root is 8.
@@ -846,12 +845,12 @@ Total policy configurable zones for Root is 8.
   15 V1-Null                          Sec(L2) Shared trust-vr     l2v          Root                
   16 Untrust-Tun                      Tun            trust-vr     hidden.1     Root                
 ;------------------------------------------------------------------------
-```
+~~~ 
 
 Now we have to map the interfaces to the zones. (Yes, it may seem a little
 convoluted but it does make sense for a firewall platform).
 
-```bash
+~~~ bash
 screenos-1-> get interface 
 
 A - Active, I - Inactive, U - Up, D - Down, R - Ready 
@@ -876,7 +875,7 @@ bgroup2        0.0.0.0/0                         Null        0017.cb80.9f4d    -
 bgroup3        0.0.0.0/0                         Null        0017.cb80.9f4e    -   D   -  
 vlan1          0.0.0.0/0                         VLAN        0017.cb80.9f4f    1   D   -  
 null           0.0.0.0/0                         Null        N/A               -   U   0  
-```
+~~~ 
 
 We now have all the information we need to begin the process. Here is a
 simplified table to make moving forward a little easier:
@@ -891,12 +890,12 @@ simplified table to make moving forward a little easier:
 
 Now let's start by creating the one routing instance that is not already setup by default.
 
-```bash
+~~~ bash
 screenos-1-> set vrouter name dmz-vr
-```
+~~~ 
 Now let's see how this shows up on the device.
 
-```bash
+~~~ bash
 creenos-1-> get vrouter
 * indicates default vrouter 
 A - AutoExport, R - RIP, N- NHRP, O - OSPF, B - BGP, P - PIM
@@ -907,22 +906,22 @@ A - AutoExport, R - RIP, N- NHRP, O - OSPF, B - BGP, P - PIM
  1025 dmz-vr                   Root                 user        0/max       0/max       
 
 total 3 vrouters shown and 1 of them defined by user
-```
+~~~ 
 
 Due to the limitations of not allowing the movement of a zone between routing
 instances when there are interfaces within them, we need to move things around
 first. Let's start by moving all the interfaces that are in the *Trust* and
 *DMZ* zones to a holder zone named *Null*.
 
-```bash
+~~~ bash
 screenos-1-> set interface eth0/0 zone Null
 screenos-1-> set interface eth0/1 zone Null
-```
+~~~ 
 
 Now we need to move the zones to the correct routing instances, and while we're
 at it let's move the interfaces back and create new sub-interfaces.
 
-```bash
+~~~ bash
 screenos-1-> set zone Untrust vrouter untrust-vr
 screenos-1-> set zone DMZ vrouter dmz-vr
 screenos-1-> set interface eth0/0 zone Untrust
@@ -932,21 +931,21 @@ screenos-1-> set interface eth0/0.2 tag 200 zone Trust
 screenos-1-> set interface eth0/0.3 tag 300 zone DMZ
 screenos-1-> set interface eth0/0.4 tag 400 zone Trust
 
-```
+~~~ 
 
 Finally, let's setup the interface addresses.
 
-```bash
+~~~ bash
 screenos-1-> set interface eth0/0.1 ip 10.10.10.1/24
 screenos-1-> set interface eth0/0.2 ip 172.16.10.1/24
 screenos-1-> set interface eth0/0.3 ip 10.10.10.1/24
 screenos-1-> set interface eth0/0.4 ip 192.168.10.1/24
-```
+~~~ 
 
 Now we should take a look and see that everything has come out the way we
 expected. First, the interfaces:
 
-```bash
+~~~ bash
 screenos-1-> get interface 
 
 A - Active, I - Inactive, U - Up, D - Down, R - Ready 
@@ -975,11 +974,11 @@ bgroup2        0.0.0.0/0                         Null        0017.cb80.9f4d    -
 bgroup3        0.0.0.0/0                         Null        0017.cb80.9f4e    -   D   -  
 vlan1          0.0.0.0/0                         VLAN        0017.cb80.9f4f    1   D   -  
 null           0.0.0.0/0                         Null        N/A               -   U   0  
-```
+~~~ 
 
 Now the routing instances:
 
-```bash
+~~~ bash
 screenos-1-> get route
 H: Host C: Connected S: Static A: Auto-Exported
 I: Imported R: RIP P: Permanent D: Auto-Discovered
@@ -1020,7 +1019,7 @@ IPv4 Dest-Routes for <dmz-vr> (2 entries)
 *         1      10.10.10.0/24       eth0/0.3         0.0.0.0   C    0      0         
 
 
-```
+~~~ 
 
 > Based on the findings of the report, my conclusion was that this idea was not
 > a practical deterrent for reasons which at this moment must be all too obvious.
